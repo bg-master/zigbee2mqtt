@@ -24,7 +24,7 @@ COPY index.js data/configuration.yaml ./
 COPY docker/docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-RUN mkdir /app/data
+VOLUME ["/app/data"]
 
 ARG COMMIT
 RUN echo "{\"hash\": \"$COMMIT\"}" > .hash.json
